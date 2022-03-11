@@ -1,0 +1,27 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 12, 2021, 11:26:41 PM
+    Author     : Tom
+*/
+
+.gameStyle {  /* applies to any dom element that's classed "obj" */
+    background-color: #1A1C1B;
+    margin: 1rem;
+    text-align: left;
+}
+
+.gameStyle .imageContainer { /* applies to any div that's in an "obj" dom element */
+    background-color: black;
+    width: 100%;
+}
+
+.gameStyle img { /* applies to any img tag that's in an "obj" dom element */
+    width:30%;
+    border-radius:0.5rem;
+    box-shadow: 0.3rem 0.3rem 0.2rem rgba(0,0,0,0.8);
+    /* box shadow: left offset, right offset, size of blur, color */
+}

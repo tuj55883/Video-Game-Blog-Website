@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <style>body { 
+                margin:0;                   /* no white border around browser window */
+                background-color: #3E4241; 
+                color: #2CD820;  /* color of font */
+                font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif; /* no tail font is more readable for small font */
+                font-size:16px; /* light grey - will show through the content area */
+            }
+
+            #titleNav {
+
+                position: fixed; 
+                width: 100%; /* changing to position fixed, you need to add 100% if you want to fill the width */
+
+                /* the next two rules will layout the title followed by the nav side by side in a row */
+                display:flex; 
+                flex-direction: column;
+                justify-content: space-between; /* flex attribute will push title left and nav right, with "space between" */
+
+                padding: 0.5rem;
+                background-color:#1A1C1B;
+
+                padding-bottom: 10px;
+                /* give a little "3D"  effect to the edges of titleNav and footer */
+                box-shadow: 0px 0px 5px black;  
+
+                top:0px;
+                left:0px;
+                z-index: 1; 
+
+                color: #2CD820;
+                font-family: serif; 
+                font-weight: bold;
+            }
+
+            #title {
+                font-size: 2.5rem;
+                font-weight: bold;
+                letter-spacing: 0.2rem; /* spaces out letters a bit */
+                white-space: nowrap;  /* don't allow the title to wrap */
+            }
+
+            #nav {
+                font-size: 1rem;
+                font-weight: bold;
+                padding-top: 1rem;
+                padding-right: 1rem;
+                white-space: nowrap;  /* don't allow nav links to wrap */
+            }
+
+            #content {
+                padding: 1rem;/* make sure fixed titleNav does not cover up any content */
+                padding-bottom: 2rem; /* make sure fixed footer doesn't cover up any content */
+                font-size: 1.15rem;
+                line-height: 2rem; 
+            }
+
+            #footer {
+                background-color:#1A1C1B;
+                color: #2CD820; 
+
+                /* give a little "3D"  effect to the edges of titleNav and footer */
+                box-shadow: 0px 0px 5px #888888;  
+
+                padding: 0.5rem;
+
+                font-size: 1rem;
+                text-align: center;
+
+                position: fixed;
+                bottom: 0px; 
+                left: 0px; 
+                z-index: 1; /* make sure footer is on top of content which would have default z-index value of 0 */
+
+                width: 100%;    /* fixed elements don't fill out the width automatically, so set the width */	 
+            }
+            #logon {
+                text-align: center;
+            }
+            a:link{
+                color: white;
+            }
+
+            a:visited{
+                color: lightgray
+            }
+
+            a:hover{
+                color: cyan;
+            }
+
+            a:active{
+                color: white; 
+            }
+
+            .indent {
+                margin-left: 1.5rem;
+            }
+
+            pre {
+                margin-bottom:1.5rem;
+                margin-right: 2rem;
+                margin-left: 1rem;
+                line-height:1.25rem;
+                font-size: 0.95rem;
+
+                padding:0.5rem;
+                padding-left:0rem;
+                background-color: #CCCCDD; 
+
+                border-radius: 0.25rem;
+                box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(0,0,0,0.4);
+            }
+            @media only screen and (min-width: 50rem) { 
+
+                /* in desktop the titleNav is not as tall, so less top margin needed to prevent titleNav from hiding top of for content */
+                #content {
+                    margin-top: 2rem;
+                    /*color: red;  /* I added this to debug when the desktop rules kick in */
+                }
+
+                #titleNav {
+                    /* flex attributes */
+                    flex-direction: row;
+                    justify-content: space-between; /* flex attribute will push title left and nav right, with "space between" */
+                }
+
+                pre {
+                    margin-bottom:1.75rem;
+                    margin-right: 1rem;
+                    margin-left: 2rem;
+                    line-height:1rem;
+
+                    padding:1rem;
+                    background-color: #EEEEEE; 
+                    border-radius: 8px;
+                    box-shadow: 2px 2px #AAAAAA;
+                }
+            } </style>
+        <title>Tutorial Index</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+
+        <div id = content>
+            <h1>Tutorial Explanation</h1>
+            <h3>What is my component?</h3>
+            <p>
+                It is a vertical list of objects that only at first have a name, a picture of what it is, and 
+                a button to learn more. When the learn more button is clicked it launches a modal with more extensive
+                information. All the information is organized by accordion folds so the user can access certain info
+                that they want at a time. You can also search through the accordion folds for specific words in case you
+                are looking for specific information. I made my component versatile so you could fille the list with anything.
+            </p>
+            <h3> How to use the component?</h3>
+            <p>
+                So the MakeInfoWindowList function takes in one parameter object that contains two thing (a name of the list, 
+                and the actual list/array of items you want to use). The item list is made by single objects that 
+                contain a (title, image URL, then an array of info). The array of info is made up of descriptors that act as indexes
+                and values that act as contents. In theory you can change this array so your list
+                can contain anything it wants. Then the MakeInfoWindowList will loop through the items
+                and make a component for each and then put them into a big list that it returns that you can then
+                put it into a div.
+            </p>
+
+            <p><a target="_blank" href="download/demo.html">Link to an example here</a> </p>
+            <p><a target="_blank" href="download.zip">Link to download a working example with all references (zip file)</a> </p>
+            
+            <h3> Code Snippets</h3>
+            <p>
+                My Accordion Snippet show how I made each accordion for each modal. With the information array passed
+                it sets each buttons' innerHTML to the key and then the content that is displayed to the value for that
+                key. The snippet shows a simple accordion made this way. Click <a target="_blank" href="https://tommy1.w3spaces.com/saved-from-Tryit-2021-11-07.html">here</a> 
+                to see it in action.
+            </p>
+            <br>
+            <p>
+                My Accordion Search Snippet searches through the button names and content for what word the user
+                entered in the search bar. If the button or content contain the word then it opens the content up
+                and closes anything that does not contain it.
+                Click <a target="_blank" href="https://tommy1.w3spaces.com/searchThroughAccordion.html">here</a> 
+                to check it out.
+            </p>
+            <br>
+            <p>
+                My final snippet is my Add Accordion Fold which is also my public function. This allows the user
+                to add another fold to the accordion after the element was already made. It search through the
+                elements by titles and then when it finds it, it will append the fold to the accordion.
+                Click <a target="_blank" href="https://tommy1.w3spaces.com/addAccordionFold.html">here</a> 
+                to see it.
+            </p>
+            <h3>Reference Links</h3>
+            <p>
+                This link helped me do my modal stuff with styling and general coding: <a target="_blank" href="https://www.w3schools.com/howto/howto_css_modals.asp">Link</a>
+                <br>
+                This link helped me program the making of my accordions and gave me the outline
+                for my accordion creation model: <a target="_blank" href="https://www.w3schools.com/howto/howto_js_accordion.asp">Link</a>
+                <br>
+                This link helped me figure out how to search through stuff
+                for certain words, then I modified it to fit a search instead of a filter: 
+                <a target="_blank" href="https://www.w3schools.com/howto/howto_js_filter_lists.asp">Link</a>
+            </p>
+        </div>
+    </body>
+</html>

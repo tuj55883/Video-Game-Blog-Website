@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            * { 
+                box-sizing: border-box;
+            }
+
+            h2 {
+                text-align: center;
+            }
+            h1 {
+                text-align: center;
+            }
+            .container {
+                height: 500px;
+                position: relative;
+
+            }
+
+            .center {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100px;
+                
+            }
+            
+            .centerImg{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 280px;
+            }
+
+            body { 
+                margin:0;                   /* no white border around browser window */
+                background-color: #3E4241; 
+                color: #2CD820;  /* color of font */
+                font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif; /* no tail font is more readable for small font */
+                font-size:16px; /* light grey - will show through the content area */
+            }
+
+            #titleNav {
+
+                position: fixed; 
+                width: 100%; /* changing to position fixed, you need to add 100% if you want to fill the width */
+
+                /* the next two rules will layout the title followed by the nav side by side in a row */
+                display:flex; 
+                flex-direction: column;
+                justify-content: space-between; /* flex attribute will push title left and nav right, with "space between" */
+
+                padding: 0.5rem;
+                background-color:#1A1C1B;
+
+                padding-bottom: 10px;
+                /* give a little "3D"  effect to the edges of titleNav and footer */
+                box-shadow: 0px 0px 5px black;  
+
+                top:0px;
+                left:0px;
+                z-index: 1; 
+
+                color: #2CD820;
+                font-family: serif; 
+                font-weight: bold;
+            }
+
+            #title {
+                font-size: 2.5rem;
+                font-weight: bold;
+                letter-spacing: 0.2rem; /* spaces out letters a bit */
+                white-space: nowrap;  /* don't allow the title to wrap */
+            }
+
+            #nav {
+                font-size: 1rem;
+                font-weight: bold;
+                padding-top: 1rem;
+                padding-right: 1rem;
+                white-space: nowrap;  /* don't allow nav links to wrap */
+            }
+
+            #content {
+                padding: 1rem;
+                padding-top:10rem; /* make sure fixed titleNav does not cover up any content */
+                padding-bottom: 2rem; /* make sure fixed footer doesn't cover up any content */
+                font-size: 1.15rem;
+                line-height: 2rem; 
+            }
+
+            #footer {
+                background-color:#1A1C1B;
+                color: #2CD820; 
+
+                /* give a little "3D"  effect to the edges of titleNav and footer */
+                box-shadow: 0px 0px 5px #888888;  
+
+                padding: 0.5rem;
+
+                font-size: 1rem;
+                text-align: center;
+
+                position: fixed;
+                bottom: 0px; 
+                left: 0px; 
+                z-index: 1; /* make sure footer is on top of content which would have default z-index value of 0 */
+
+                width: 100%;    /* fixed elements don't fill out the width automatically, so set the width */	 
+            }
+            a:link{
+                color: white;
+            }
+
+            a:visited{
+                color: lightgray
+            }
+
+            a:hover{
+                color: cyan;
+            }
+
+            a:active{
+                color: white; 
+            }
+
+            .indent {
+                margin-left: 1.5rem;
+            }
+
+            pre {
+                margin-bottom:1.5rem;
+                margin-right: 2rem;
+                margin-left: 1rem;
+                line-height:1.25rem;
+                font-size: 0.95rem;
+
+                padding:0.5rem;
+                padding-left:0rem;
+                background-color: #CCCCDD; 
+
+                border-radius: 0.25rem;
+                box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(0,0,0,0.4);
+            }
+            @media only screen and (min-width: 50rem) { 
+
+                /* in desktop the titleNav is not as tall, so less top margin needed to prevent titleNav from hiding top of for content */
+                #content {
+                    margin-top: 2rem;
+                    /*color: red;  /* I added this to debug when the desktop rules kick in */
+                }
+
+                #titleNav {
+                    /* flex attributes */
+                    flex-direction: row;
+                    justify-content: space-between; /* flex attribute will push title left and nav right, with "space between" */
+                }
+
+                pre {
+                    margin-bottom:1.75rem;
+                    margin-right: 1rem;
+                    margin-left: 2rem;
+                    line-height:1rem;
+
+                    padding:1rem;
+                    background-color: #EEEEEE; 
+                    border-radius: 8px;
+                    box-shadow: 2px 2px #AAAAAA;
+                }
+            }
+            /* The Modal (background) */
+            .modal {
+                
+                display: none; /* Hidden by default */
+                position: absolute; /* Stay in place */
+                z-index: 1; /* Sit on top */
+                padding-top: 100px; /* Location of the box */
+                left: 0;
+                top: 0;
+                width: 80%; /* Full width */
+                height: 100%; /* Full height */
+                overflow: auto; /* Enable scroll if needed */
+                background-color: rgb(0,0,0); /* Fallback color */
+                background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+                left: 50%;
+                transform: translateX(-50%);
+
+            }
+
+            /* Modal Content */
+            .modal-content {
+                background-color: #fefefe;
+                margin: auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 80%;
+                
+
+                
+            }
+
+            /* The Close Button */
+            .close {
+                color: #aaaaaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+
+            .close:hover,
+            .close:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
+            .accordion {
+                background-color: #eee;
+                color: #444;
+                cursor: pointer;
+                padding: 18px;
+                width: 100%;
+                text-align: left;
+                border: none;
+                outline: none;
+                transition: 0.4s;
+            }
+
+            /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+            .active, .accordion:hover {
+                background-color: #ccc;
+            }
+
+            /* Style the accordion panel. Note: hidden by default */
+            .panel {
+                padding: 0 18px;
+                background-color: white;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.2s ease-out;
+            }
+            .accordion:after {
+                content: '\02795'; /* Unicode character for "plus" sign (+) */
+                font-size: 13px;
+                color: #777;
+                float: right;
+                margin-left: 5px;
+            }
+
+            .active:after {
+                content: "\2796"; /* Unicode character for "minus" sign (-) */
+            }
+        </style>
+
+        <title>Proof of Concept</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h2>Proof Of Concept</h2>
+
+        <!-- Trigger/Open The Modal -->
+        <div class="container">
+            <div class="center">
+                <button id="myBtn">Learn More</button><br>
+                
+                </div>
+            <h1>Shovel Knight</h1>
+            <div class="centerImg">
+                <img src="../pics/shovelKnight.jpg" alt="Shovel Knight">
+                </div>
+            
+
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <button class="accordion">About the Developers</button>
+                    <div class="panel">
+                        <p>Lorem ipsum...</p>
+                    </div>
+
+                    <button class="accordion">Style of Game</button>
+                    <div class="panel">
+                        <p>Lorem ipsum...</p>
+                    </div>
+
+                    <button class="accordion">Developement History</button>
+                    <div class="panel">
+                        <p>Lorem ipsum...</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <script>
+
+            var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+            var b = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+            b.onclick = function () {
+                modal.style.display = "block";
+                var acc = document.getElementsByClassName("accordion");
+                var i;
+
+                for (i = 0; i < acc.length; i++) {
+                    acc[i].addEventListener("click", function () {
+                        this.classList.toggle("active");
+                        var panel = this.nextElementSibling;
+                        if (panel.style.maxHeight) {
+                            panel.style.maxHeight = null;
+                        } else {
+                            panel.style.maxHeight = panel.scrollHeight + "px";
+                        }
+                    });
+                }
+            };
+
+// When the user clicks on <span> (x), close the modal
+            span.onclick = function () {
+                modal.style.display = "none";
+            };
+
+// When the user clicks anywhere outside of the modal, close it
+            window.onclick = function (event) {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            };
+
+
+
+        </script>
+    </body>
+</html>

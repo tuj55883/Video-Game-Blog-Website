@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <link href="InfoWindowListStyle.css" rel="stylesheet" type="text/css" />  
+        <style>
+            body { 
+                margin:0;                   /* no white border around browser window */
+                background-color: #3E4241; 
+                color: #2CD820;  /* color of font */
+                font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif; /* no tail font is more readable for small font */
+                font-size:16px; /* light grey - will show through the content area */
+            }
+        </style>
+        <title>Demo</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="infoWindow"></div>
+        <script> "use strict";</script>
+        <script src="MakeInfoWindowList.js"></script>
+        <script>
+            var divHoldingWidgets = document.createElement("div");
+            divHoldingWidgets.classList.add("widgetContainer");
+
+            var gameParamInfo1 = {
+                "About the Developer": "Yacht Club Games is an independent game developer \n\
+                that is located in Los Angeles, CA. We are a bunch who have dedicated our lives to \n\
+                video games ever since we saw our first pixels. We work in a deeply collaborative team environment, \n\
+                and our serious and solemn goal is to make original games that fuse modern and retro sensibilities.",
+                
+                "Style of Game": "Shovel Knight is a 2D side-scrolling platformer with an 8-bit \n\
+                graphical style. In the game's first campaign, Shovel of Hope, players control \n\
+                the eponymous protagonist as he collects treasure and fights against \n\
+                the Order of No Quarter. Shovel Knight's primary means of attack is his shovel, \n\
+                which he can either use to attack enemies head-on and dig up treasure, or aim below him \n\
+                while jumping to bounce on enemies, similar to the pogo jump from DuckTales or the downward\n\
+                 thrust from Zelda II: The Adventure of Link.[12] By finding a salesman named Chester hidden in most levels, \n\
+                the player can purchase secondary items known as relics that can be used with a limited supply of magic. \n\
+                These include long-range projectiles, gloves that can punch through dirt blocks, and a locket that \n\
+                makes the player invincible for a brief period.",
+        
+                "Developement History": "Designer Nick Wozniak stated that the idea for the game started out \n\
+                as \"sort of as a joke conversation over lunch that \n\
+                kind of got too serious\". The team had already planned to \n\
+                make a game in the style of the NES classics that they grew \n\
+                up on, and eventually the sword-thrust move from Zelda II: \n\
+                The Adventure of Link was brought up as a move that both \n\
+                designers liked. They soon thought that this move would \n\
+                be better suited in their game for a shovel instead of a \n\
+                sword. Other specific inspirations include Castlevania III: Dracula's Curse, \n\
+                DuckTales, Super Mario Bros. 3, the Mega Man series, U.N. Squadron, and Dark Souls.\n\
+                 The decision of the character's name was \"pretty much settled\" \n\
+                after the first brainstorming session, with the name \"Plummet Knight\" being the only other suggestion."
+            };
+            
+            var gameListParam1 = {title: "Shovel Knight", img: "tutPics/shovelKnight.jpg", info: gameParamInfo1};
+
+            var gameParamInfo2 = {
+                "About the Developer": "Developed by Hazelight Studios and published by Electronic Arts.\n\
+                It is the second video game to be directed by Josef Fares after Brothers: A Tale of Two Sons. ",
+        
+                "Style of Game": "A Way Out is an action-adventure game played from a third-person perspective.\n\
+                It is specifically designed for split-screen cooperative multiplayer, which means that it must be \n\
+                played with another player through either local or online play while both players'\n\
+                screens are displayed next to each other. In the game, players control Leo and \n\
+                Vincent, two convicted prisoners who must break out of prison and stay \n\
+                on the run from authorities.",
+        
+                "New Way To Play With Friends": "The game offers a \"play free online\" model such that \n\
+                players will be able to join online sessions (hosted by the player's friends) \n\
+                whether or not the joining player owns the actual game."
+            };
+            var gameListParam2 = {title: "A Way Out", img: "tutPics/aWayOut.jpg", info: gameParamInfo2};
+
+            var gameParamInfo3 = {
+                "Who Are We?": "We’re a small indie studio mainly based out of out of Washington, USA. \n\
+                Created in 2015, we worked part time on several unreleased games (we do not \n\
+                talk about “Poop Week”) until finally going full-time indie in late 2018 for \n\
+                Among Us. Other games we’ve worked on include Dig2China and The Henry Stickmin \n\
+                Collection.",
+                
+                "Style of Game": "This is an Online multiplayer social deduction game.\n\
+                The game was inspired by the party game Mafia and the science \n\
+                fiction horror film The Thing.",
+                
+                "Rise From Obscurity": "While the game was initially released in 2018, \n\
+                to little mainstream attention, it received a massive influx of \n\
+                popularity in 2020 due to many well-known Twitch streamers and \n\
+                YouTubers playing it. The timing of the COVID-19 pandemic \n\
+                has also been credited with boosting the game's popularity.",
+        
+                "Awards":"-Golden Joystick 2020 Break Through Award <br>\n\
+                 -The Game Awards 2020 Best Mobile Game<br>\n\n\
+                 -Nickelodeon Kids' Choice Awards 2021 Favorite Video Game"
+            };
+            var gameListParam3 = {title: "Among Us", img: "tutPics/amongUs.jpg", info: gameParamInfo3};
+
+            var param1 = {name: "Video Games", list: [gameListParam1, gameListParam2, gameListParam3]};
+
+            var firstWidget = MakeInfoWindowList(param1);
+            firstWidget.classList.add("plainWidget");
+
+            var recipeParamInfo1 = {
+                "Ingredients": "10 ounces all-purpose flour \n\
+                1 tsp kosher salt<br>\n\
+                2 sticks unsalted butter, frozen<br>\n\
+                Ice water<br>\n\
+                1 beaten egg white<br>\n\
+                Granulated sugar<br>\n\
+                Fresh or frozen blueberries (48oz)<br>\n\
+                ½ cup sugar<br>\n\
+                ¼ cup corn starch<br>\n\
+                Lemon zest\n\
+                ",
+        
+                "Step 1:": "Combine 10 ounces of all-purpose flour with 1 teaspoon of kosher salt \n\
+                and dump it into a food processor using the blade attachment. Pulse a few times to \n\
+                combine. Set aside in a mixing bowl for later. ",
+        
+                "Step 2":"In a small bowl, whisk together ½ cup of sugar, ¼ cup of corn starch, and \n\
+                the zest of one lemon. Combine this mixture with the bowl of blueberries and toss accordingly.",
+        
+                "Step 3":"After 30 minutes has passed, the dough should be nice and firm and should \n\
+                look like it has hydrated nicely. In addition, it should be visibly dappled with \n\
+                little bits of butter. Take half of the dough, wrap with plastic, and place it \n\
+                back into the fridge for later. ",
+        
+                "Step 4:": "Trim the edges, tuck them underneath the bottom crust nice and tight,\n\
+                and brush the surface down with 1 beaten egg white and a few sprinkles of \n\
+                granulated sugar. Place in a 400°F oven for 30 to 45 minutes until deeply \n\
+                golden brown. Let cool completely before digging in. "
+            };
+            var recipeListParam1 = {title: "Blue Berry Pie", img: "tutPics/blueBerryPie.jpg", info: recipeParamInfo1};
+            
+            var recipeParamInfo2 = {
+                "Ingredients": "4 Tbsp unsalted butter, divided<br>\n\
+                ½ yellow onion, grated<br>\n\
+                ½ Cup whole milk<br> \n\
+                ½ Cup plain breadcrumbs<br> \n\
+                1 tsp kosher salt<br> \n\
+                ½ tsp white pepper<br>\n\
+                Optional: ⅛ tsp ground allspice<br> \n\
+                1 lb lean ground beef (8 oz lean ground beef + 8 oz ground pork)<br>\n\
+                1 large egg",
+        
+                "Step 1:": "Heat 1 tablespoon of butter in a large cast-iron skillet over medium heat.",
+        
+                "Step 2":"Combine the milk, breadcrumbs, and spices in a large bowl. Allow the mixture \n\
+                to sit for 10 minutes to allow the breadcrumbs to absorb the milk. ",
+        
+                "Step 3":"In the same cast-iron skillet, melt the remaining butter over medium heat. Once \n\
+                bubbling, add the meatballs and brown them on all sides, about 2-3 minutes per side. \n\
+                Make sure to flip the meatballs frequently to preserve their round shape. ",
+        
+                "Step 4:": "Reserve the cooked meatballs. Keep the cast-iron pan and residual butter for the sauce."
+            };
+            
+            var recipeListParam2 = {title: "Swedish Meatballs", img: "tutPics/swedishMeatballs.jpg", info: recipeParamInfo2};
+
+
+
+            var param2 = {name: "Recipes", list: [recipeListParam1, recipeListParam2]};
+            var secondWidget = MakeInfoWindowList(param2);
+            secondWidget.classList.add("plainWidget");
+
+            mainDiv = document.getElementById('infoWindow');
+            mainDiv.appendChild(divHoldingWidgets);
+
+            divHoldingWidgets.appendChild(firstWidget);
+            divHoldingWidgets.appendChild(secondWidget);
+
+            secondWidget.addAccordionFold("Blue Berry Pie", "Final Step:", "Eat");
+            firstWidget.addAccordionFold("Shovel Knight", "3 free DLCs:", "Plague of Shadows<br>Specter of Torment<br>King of Cards");
+        </script>
+    </body>
+</html>

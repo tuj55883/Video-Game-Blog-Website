@@ -1,0 +1,129 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 6, 2021, 12:22:14 PM
+    Author     : Tom
+*/
+.InfoWindowListStyleButton {
+  background-color: #165C73; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+
+.InfoWindowListStyleImg {
+    width: 35%;
+    height: 50%;
+}
+.InfoWindowListStyleWidget {
+    color: white;
+    margin: 0 auto;
+    text-align: center;
+    width: 60%;
+    background-color: #165C73;
+    padding-bottom: 0.6rem;
+}
+.InfoWindowListStyleModalHolder {
+    
+    position:relative;
+    margin: 0 auto;
+    width: 90%;
+    text-align: center;
+    background-color: #CB273A;
+    border-radius: 1.6rem;
+}
+.InfoWindowListStyleModal {
+    
+    display: none; /* Hidden by default */
+    position: absolute;
+    z-index: 1; /* Sit on top */
+    padding-top: 10%; /* Location of the box */
+    top: 0;
+    width: 90%; 
+    height:85.3%; 
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+
+.InfoWindowListStyleModal-Backdrop {
+    position: absolute;
+}
+/* Modal Content */
+.InfoWindowListStyleModal-Content {
+    color: black;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    text-align: left;
+
+
+
+}
+
+.InfoWindowListStyleClose {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.InfoWindowListStyleClose:hover,
+.InfoWindowListStyleClose:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.InfoWindowListStyleAccordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.InfoWindowListStyleActive, .InfoWindowListStyleAccordion:hover {
+    background-color: #ccc;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.InfoWindowListStylePanel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+.InfoWindowListStyleAccordion:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+
+.InfoWindowListStyleActive:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+}

@@ -1,0 +1,50 @@
+[
+    {
+        "gameId": "1",
+        "gameName": "Shovel Knight",
+        "releaseDate": "3/5/2016",
+        "price": "",
+        "genre": "3",
+        "developer": "Member",
+        "img": "pics/shovelKnight.jpg",
+        "webUserId": "1",
+        "webUserEmail": "yachtclub@gmail.com",
+        "errorMsg": ""
+    },
+    {
+        "gameId": "2",
+        "gameName": "Amoung Us",
+        "releaseDate": "10/29/2018",
+        "price": "",
+        "genre": "3",
+        "developer": "Member",
+        "img": "pics/amongUs.jpg",
+        "webUserId": "4",
+        "webUserEmail": "bHill@gmail.com",
+        "errorMsg": ""
+    },
+    {
+        "gameId": "3",
+        "gameName": "Fall Guys",
+        "releaseDate": "7/18/2020",
+        "price": "",
+        "genre": "3",
+        "developer": "Member",
+        "img": "pics/fallGuys.jpg",
+        "webUserId": "2",
+        "webUserEmail": "fallguys@gmail.com",
+        "errorMsg": ""
+    },
+    {
+        "gameId": "4",
+        "gameName": "A Way Out",
+        "releaseDate": "9/25/2017",
+        "price": "",
+        "genre": "3",
+        "developer": "Member",
+        "img": "pics/aWayOut.jpg",
+        "webUserId": "4",
+        "webUserEmail": "bHill@gmail.com",
+        "errorMsg": ""
+    }
+]

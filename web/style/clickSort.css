@@ -1,0 +1,55 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 3, 2021, 7:05:06 PM
+    Author     : Tom
+*/
+.clickSort {  
+
+    text-align: center;
+    color:#2CD820;
+
+}
+
+.clickSort table {
+    color:#1A1C1B;
+    margin:auto;     /* auto makes left and right margins the same, means centered */
+    margin-top: 1rem;
+    width: 50%;/* em means size of capital M at the root, scalable for mobile and desktop */
+    
+
+}
+
+.clickSort th {  /* applies to any <th> (table header) tag in any element classed "clickSort" */
+    padding: 0.25rem;
+    background-color: #2CD820;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.clickSort td {  /* applies to any <td> (table data or cell) tag in any element classed "clickSort" */
+    padding: 0.25rem;
+    background-color: #22F413;
+}
+
+.clickSort img {
+    border-radius: 1rem;
+}
+
+.clickSort button {
+  border: none;
+  background-color: inherit;
+  padding: 7px 14px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: underline;
+
+}
+
+
+
+
